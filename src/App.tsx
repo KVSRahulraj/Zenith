@@ -139,35 +139,63 @@ const Navbar = () => {
       className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
         isScrolled 
           ? 'bg-white py-4 border-gray-100 shadow-sm' 
-          : 'bg-transparent py-8 border-transparent'
+          : 'bg-transparent py-6 border-transparent'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center">
-        <div className="flex items-center gap-12">
-          <a href="/" className="text-2xl font-display font-bold tracking-tighter">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-2 lg:grid-cols-3 items-center">
+        {/* Left Side Links */}
+        <div className="hidden lg:flex items-center gap-8">
+          {['Properties', 'Mortgage', 'Company'].map((item) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`}
+              className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-colors ${
+                isScrolled ? 'text-brand-black hover:text-gray-500' : 'text-brand-white hover:text-gray-300'
+              }`}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+
+        {/* Center Logo */}
+        <div className="flex justify-start lg:justify-center">
+          <a 
+            href="/" 
+            className={`text-2xl font-display font-bold tracking-tighter transition-colors ${
+              isScrolled ? 'text-brand-black' : 'text-brand-white'
+            }`}
+          >
             ZENITH<span className="hidden sm:inline">.</span>
           </a>
-          
-          <div className="hidden lg:flex gap-8">
-            {['Properties', 'Mortgage', 'Company', 'Careers', 'Blog'].map((item) => (
+        </div>
+        
+        {/* Right Side Actions */}
+        <div className="flex items-center justify-end gap-6">
+          <div className="hidden lg:flex gap-8 mr-8">
+            {['Careers', 'Blog'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium hover:text-gray-500 transition-colors"
+                className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-colors ${
+                  isScrolled ? 'text-brand-black hover:text-gray-500' : 'text-brand-white hover:text-gray-300'
+                }`}
               >
                 {item}
               </a>
             ))}
           </div>
-        </div>
-
-        <div className="flex items-center gap-6">
-          <button className="hidden sm:block text-brand-white bg-brand-black px-6 py-3 text-sm font-bold tracking-tight hover:bg-gray-800 transition-all active:scale-95">
+          
+          <button className={`hidden sm:block px-6 py-3 text-[10px] font-bold uppercase tracking-widest transition-all active:scale-95 ${
+            isScrolled 
+              ? 'bg-brand-black text-white hover:bg-gray-800' 
+              : 'bg-brand-white text-brand-black hover:bg-gray-100'
+          }`}>
             Post a Property
           </button>
           
           <button 
-            className="lg:hidden"
+            className={`lg:hidden transition-colors ${isScrolled ? 'text-brand-black' : 'text-brand-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -626,11 +654,11 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
-                    <button className="flex-1 bg-brand-black text-white px-6 py-4 font-bold hover:bg-gray-800 transition-all uppercase tracking-widest text-[9px] flex items-center justify-center gap-2">
-                      Book Visit <ArrowRight size={12} />
+                  <div className="flex gap-4">
+                    <button className="flex-1 bg-brand-black text-white px-8 py-5 font-bold hover:bg-[#222] transition-all uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-2 shadow-sm">
+                      Book Visit <ArrowRight size={14} />
                     </button>
-                    <button className="flex-1 border border-black/10 px-6 py-4 font-bold hover:bg-gray-50 transition-all uppercase tracking-widest text-[9px]">
+                    <button className="flex-1 border border-brand-black/20 text-brand-black px-8 py-5 font-bold hover:border-brand-black/40 hover:bg-black/[0.02] transition-all uppercase tracking-[0.2em] text-[10px]">
                       Explore Property
                     </button>
                   </div>
