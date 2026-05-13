@@ -535,7 +535,7 @@ const Footer = () => {
             &copy; 2026 ZENITH REALTY GROUP. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-8">
-            <p className="text-[10px] text-gray-400 uppercase tracking-tighter">DESIGNED BY ZENITH STUDIOS</p>
+            <p className="text-[10px] text-gray-400 tracking-tighter">Designed by <span className="font-bold text-gray-600">"Rebbids"</span></p>
             <p className="text-[10px] text-gray-400 uppercase tracking-tighter">BASED IN CALIFORNIA, US</p>
           </div>
         </div>
